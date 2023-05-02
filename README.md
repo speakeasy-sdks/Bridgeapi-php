@@ -8,7 +8,6 @@
    <a href="https://docs.bridgeapi.io/docs"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=5444e4&style=for-the-badge" /></a>
    <a href="https://github.com/speakeasy-sdks/Bridgeapi-php/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/Bridgeapi-php/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" /></a>
-  <a href="https://github.com/speakeasy-sdks/Bridgeapi-php/releases"><img src="https://img.shields.io/github/v/release/speakeasy-sdks/Bridgeapi-php?sort=semver&style=for-the-badge" /></a>
 </div>
 
 <!-- Start SDK Installation -->
