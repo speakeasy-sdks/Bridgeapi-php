@@ -58,7 +58,8 @@ paths:
           description: Invalid body content
           content:
             application/json:
-              $ref: '#/components/schemas/InvalidBodyContent'
+              schema:
+                $ref: '#/components/schemas/InvalidBodyContent'
     get:
       summary: Retrieve a list of payment links
       operationId: listPaymentLinks
@@ -111,7 +112,8 @@ paths:
           description: Invalid body content
           content:
             application/json:
-              $ref: '#/components/schemas/InvalidBodyContent'
+              schema:
+                $ref: '#/components/schemas/InvalidBodyContent'
       
   /pament-links/{PaymentLinkID}:
     parameters:
@@ -138,7 +140,8 @@ paths:
           description: Invalid body content
           content:
             application/json:
-              $ref: '#/components/schemas/InvalidBodyContent'
+              schema:
+                $ref: '#/components/schemas/InvalidBodyContent'
 
   /payment-links/{PaymentLinkID}/revoke:
     post:
@@ -161,7 +164,8 @@ paths:
           description: Invalid body content
           content:
             application/json:
-              $ref: '#/components/schemas/InvalidBodyContent'
+              schema:
+                $ref: '#/components/schemas/InvalidBodyContent'
 
 
 components:
