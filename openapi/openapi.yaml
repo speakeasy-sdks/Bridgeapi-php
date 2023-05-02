@@ -1,0 +1,335 @@
+openapi: 3.1.0
+info:
+  title: BridgeAPI Payment Links API
+  version: 1.0.0
+
+servers:
+  - url: 'https://api.bridgeapi.io/v2'
+    description: Production
+
+security:
+  - client_secret: []
+  - client_id: []
+
+tags: 
+  - name: PaymentLinks
+    description: Payment Links API 
+
+x-speakeasy-name-override:
+  - operationId: ^get.*
+    methodNameOverride: get
+  - operationId: ^list.*
+    methodNameOverride: list
+  - operationId: ^revoke.*
+    methodNameOverride: revoke
+  - operationId: ^create.*
+    methodNameOverride: create
+
+paths:
+  /payment-links:
+    post:
+      summary: Create a payment link
+      operationId: createPaymentLink
+      x-speakeasy-usage-example: true
+      tags:
+        - PaymentLinks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentLinkRequest'
+      responses:
+        '200':
+          description: Successfully created a payment link
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                    example: 'https://pay.bridgeapi.io/link/9dcf522ce3663efc598f573634531eb3fccbbcdde0bc5d674c95c0740feb0ec6'
+                  id:
+                    type: string
+                    example: '3ae3a3d6-f9d5-445e-b8fe-2db1ab8c39d8'
+        '400':
+          description: Invalid body content
+          content:
+            application/json:
+              $ref: '#/components/schemas/InvalidBodyContent'
+    get:
+      summary: Retrieve a list of payment links
+      operationId: listPaymentLinks
+      tags:
+        - PaymentLinks
+      parameters:
+        - in: query
+          name: after
+          schema:
+            type: string
+          description: Cursor pointing to the start of the desired set
+          required: false
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+          description: Number of records to return
+          required: false
+        - in: query
+          name: since
+          schema:
+            type: string
+            format: date-time
+          description: Limit to payment links created after the specified date
+          required: false
+        - in: query
+          name: until
+          schema:
+            type: string
+            format: date-time
+          description: Limit to transactions created before the specified date
+          required: false
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [VALID, COMPLETED, EXPIRED, REVOKED]
+          description: Filter payment links by status
+          required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentLinksResponse'
+        '400':
+          description: Invalid body content
+          content:
+            application/json:
+              $ref: '#/components/schemas/InvalidBodyContent'
+      
+  /pament-links/{PaymentLinkID}:
+    parameters:
+      - name: PaymentLinkID
+        in: path
+        description: ID of the payment link to retrieve
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Retrieve payment link information by ID
+      description: Returns the details of a payment link specified by its ID
+      operationId: getPaymentLink
+      tags:
+        - PaymentLinks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentLinkResponse'
+        '400':
+          description: Invalid body content
+          content:
+            application/json:
+              $ref: '#/components/schemas/InvalidBodyContent'
+
+  /payment-links/{PaymentLinkID}/revoke:
+    post:
+      summary: Revoke a payment link
+      description: Revokes the payment link specified by its ID
+      operationId: revokePaymentLink
+      tags: 
+        -  PaymentLinks
+      parameters:
+        - name: PaymentLinkID
+          in: path
+          required: true
+          description: ID of the payment link to be revoked
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid body content
+          content:
+            application/json:
+              $ref: '#/components/schemas/InvalidBodyContent'
+
+
+components:
+  securitySchemes:
+    client_secret:
+      type: apiKey
+      name: Client-Secret
+      in: header
+    client_id:
+      type: apiKey
+      name: Client-Id
+      in: header
+  schemas:
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: Thomas
+        last_name:
+          type: string
+          example: Pichet
+        external_reference:
+          type: string
+          example: REF-USER-1234_AZ
+      required:
+        - first_name
+        - last_name
+
+    Transaction:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: float
+          example: 120.98
+        currency:
+          type: string
+          example: EUR
+        label:
+          type: string
+          example: Refund 123456
+        end_to_end_id:
+          type: string
+          example: E2E_ID-1234
+        execution_date:
+          type: string
+          format: date-time
+          example: '2021-07-24T22:00:00.000Z'  
+        beneficiary:
+          $ref: '#/components/schemas/Beneficiary'
+      required:
+        - amount
+        - currency
+        - label
+    Beneficiary:
+      type: object
+      properties:
+        iban:
+          type: string
+          description: The IBAN of the recipient.
+          example: "GB29 NWBK 6016 1331 9268 19"
+        first_name:
+          type: string
+          description: The first name of the beneficiary.
+          maxLength: 35
+          example: "John"
+        last_name:
+          type: string
+          description: The last name of the beneficiary.
+          maxLength: 35
+          example: "Doe"
+        company_name:
+          type: string
+          description: The name of the company if the beneficiary is a company.
+          maxLength: 35
+          example: "Acme Inc."
+      required:
+        - iban
+
+    PaymentLinkRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        expired_date:
+          type: string
+          format: date-time
+          example: '2021-07-24T22:00:00.000Z'
+        client_reference:
+          type: string
+          example: ABCDE_FG-HI_12345
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        callback_url:
+          type: string
+        country:
+          type: string
+          enum: [fr, es, de, gb]
+        bank_id:
+          type: integer
+      required:
+        - user
+        - transactions
+    PaymentLinkResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the payment link.
+        status:
+          type: string
+          description: The status of the payment link.
+        user:
+          $ref: "#/components/schemas/User" 
+        link:
+          type: string
+          description: The URL of the payment link.
+        client_reference:
+          type: string
+          description: The client reference of the payment link.
+        transactions:
+          type: array
+          description: The transactions associated with the payment link.
+          items:
+            $ref: "#/components/schemas/Transaction"
+        expired_at:
+          type: string
+          format: date-time
+          description: The expiration date and time of the payment link.
+        created_at:
+          type: string
+          format: date-time
+          description: The creation date and time of the payment link.
+        updated_at:
+          type: string
+          format: date-time
+          description: The last update date and time of the payment link.
+    PaymentLinksResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentLinkResponse'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      required:
+        - resources
+        - pagination
+
+    Pagination:
+      type: object
+      properties:
+        next_uri:
+          type: string
+        
+    InvalidBodyContent:
+        type: object
+        properties:
+          type:
+            type: string
+            example: invalid_request
+          message:
+            type: string
+            example: Invalid body content
+          documentation_url:
+            type: string
+            example: 'https://docs.bridgeapi.io'
