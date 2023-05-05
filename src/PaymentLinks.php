@@ -43,7 +43,8 @@ class PaymentLinks
      * @param \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequest $request
      * @return \Bridge\Bridgeapi\Models\Operations\CreatePaymentLinkResponse
      */
-	public function create(
+	
+    public function create(
         \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequest $request,
     ): \Bridge\Bridgeapi\Models\Operations\CreatePaymentLinkResponse
     {
@@ -90,7 +91,8 @@ class PaymentLinks
      * @param \Bridge\Bridgeapi\Models\Operations\GetPaymentLinkRequest $request
      * @return \Bridge\Bridgeapi\Models\Operations\GetPaymentLinkResponse
      */
-	public function get(
+	
+    public function get(
         \Bridge\Bridgeapi\Models\Operations\GetPaymentLinkRequest $request,
     ): \Bridge\Bridgeapi\Models\Operations\GetPaymentLinkResponse
     {
@@ -130,7 +132,8 @@ class PaymentLinks
      * @param \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksRequest $request
      * @return \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksResponse
      */
-	public function list(
+	
+    public function list(
         \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksRequest $request,
     ): \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksResponse
     {
@@ -173,7 +176,8 @@ class PaymentLinks
      * @param \Bridge\Bridgeapi\Models\Operations\RevokePaymentLinkRequest $request
      * @return \Bridge\Bridgeapi\Models\Operations\RevokePaymentLinkResponse
      */
-	public function revoke(
+	
+    public function revoke(
         \Bridge\Bridgeapi\Models\Operations\RevokePaymentLinkRequest $request,
     ): \Bridge\Bridgeapi\Models\Operations\RevokePaymentLinkResponse
     {

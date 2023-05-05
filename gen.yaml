@@ -2,13 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: d9a045c24674fa8c730d1dfd6961da65
   docVersion: 1.0.0
-  speakeasyVersion: 1.27.0
-  generationVersion: 2.24.0
+  speakeasyVersion: 1.29.0
+  generationVersion: 2.26.0
 generation:
   telemetryEnabled: false
   sdkClassName: SDK
   singleTagPerOp: false
 php:
-  version: 1.0.0
+  version: 1.1.0
+  maxMethodParams: 0
   namespace: Bridge\Bridgeapi
   packageName: bridge/bridgeapi
