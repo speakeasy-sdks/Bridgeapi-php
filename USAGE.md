@@ -8,7 +8,7 @@ require_once 'vendor/autoload.php';
 use \Bridge\Bridgeapi\SDK;
 use \Bridge\Bridgeapi\Models\Shared\Security;
 use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequest;
-use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountryEnum;
+use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountry;
 use \Bridge\Bridgeapi\Models\Shared\Transaction;
 use \Bridge\Bridgeapi\Models\Shared\Beneficiary;
 use \Bridge\Bridgeapi\Models\Shared\User;
@@ -21,7 +21,7 @@ try {
     $request->bankId = 548814;
     $request->callbackUrl = 'provident';
     $request->clientReference = 'ABCDE_FG-HI_12345';
-    $request->country = PaymentLinkRequestCountryEnum::DE;
+    $request->country = PaymentLinkRequestCountry::DE;
     $request->expiredDate = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2021-07-24T22:00:00.000Z');
     $request->transactions = [
         new Transaction(),

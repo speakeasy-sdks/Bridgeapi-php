@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Bridge\Bridgeapi\Models\Shared;
 
 
-enum PaymentLinkRequestCountryEnum: string
+enum PaymentLinkRequestCountry: string
 {
     case FR = 'fr';
     case ES = 'es';

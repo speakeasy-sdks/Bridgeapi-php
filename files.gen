@@ -23,13 +23,13 @@ src/Models/Operations/CreatePaymentLink200ApplicationJSON.php
 src/Models/Operations/CreatePaymentLinkResponse.php
 src/Models/Operations/GetPaymentLinkRequest.php
 src/Models/Operations/GetPaymentLinkResponse.php
-src/Models/Operations/ListPaymentLinksStatusEnum.php
+src/Models/Operations/ListPaymentLinksStatus.php
 src/Models/Operations/ListPaymentLinksRequest.php
 src/Models/Operations/ListPaymentLinksResponse.php
 src/Models/Operations/RevokePaymentLinkRequest.php
 src/Models/Operations/RevokePaymentLinkResponse.php
 src/Models/Shared/InvalidBodyContent.php
-src/Models/Shared/PaymentLinkRequestCountryEnum.php
+src/Models/Shared/PaymentLinkRequestCountry.php
 src/Models/Shared/PaymentLinkRequest.php
 src/Models/Shared/User.php
 src/Models/Shared/Transaction.php

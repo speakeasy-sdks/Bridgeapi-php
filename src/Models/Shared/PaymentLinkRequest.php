@@ -27,9 +27,9 @@ class PaymentLinkRequest
     public ?string $clientReference = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('country')]
-    #[\JMS\Serializer\Annotation\Type('enum<Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountryEnum>')]
+    #[\JMS\Serializer\Annotation\Type('enum<Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountry>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?PaymentLinkRequestCountryEnum $country = null;
+    public ?PaymentLinkRequestCountry $country = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('expired_date')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]

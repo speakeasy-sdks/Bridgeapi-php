@@ -38,10 +38,10 @@ class ListPaymentLinksRequest
     /**
      * Filter payment links by status
      * 
-     * @var ?\Bridge\Bridgeapi\Models\Operations\ListPaymentLinksStatusEnum $status
+     * @var ?\Bridge\Bridgeapi\Models\Operations\ListPaymentLinksStatus $status
      */
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=status')]
-    public ?ListPaymentLinksStatusEnum $status = null;
+    public ?ListPaymentLinksStatus $status = null;
     
     /**
      * Limit to transactions created before the specified date

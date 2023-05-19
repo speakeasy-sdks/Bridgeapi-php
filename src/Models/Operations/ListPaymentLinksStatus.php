@@ -10,7 +10,7 @@ namespace Bridge\Bridgeapi\Models\Operations;
 
 
 /** Filter payment links by status */
-enum ListPaymentLinksStatusEnum: string
+enum ListPaymentLinksStatus: string
 {
     case VALID = 'VALID';
     case COMPLETED = 'COMPLETED';

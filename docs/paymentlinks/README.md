@@ -26,7 +26,7 @@ require_once 'vendor/autoload.php';
 use \Bridge\Bridgeapi\SDK;
 use \Bridge\Bridgeapi\Models\Shared\Security;
 use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequest;
-use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountryEnum;
+use \Bridge\Bridgeapi\Models\Shared\PaymentLinkRequestCountry;
 use \Bridge\Bridgeapi\Models\Shared\Transaction;
 use \Bridge\Bridgeapi\Models\Shared\Beneficiary;
 use \Bridge\Bridgeapi\Models\Shared\User;
@@ -39,7 +39,7 @@ try {
     $request->bankId = 602763;
     $request->callbackUrl = 'nulla';
     $request->clientReference = 'ABCDE_FG-HI_12345';
-    $request->country = PaymentLinkRequestCountryEnum::DE;
+    $request->country = PaymentLinkRequestCountry::DE;
     $request->expiredDate = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2021-07-24T22:00:00.000Z');
     $request->transactions = [
         new Transaction(),
@@ -110,7 +110,7 @@ require_once 'vendor/autoload.php';
 use \Bridge\Bridgeapi\SDK;
 use \Bridge\Bridgeapi\Models\Shared\Security;
 use \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksRequest;
-use \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksStatusEnum;
+use \Bridge\Bridgeapi\Models\Operations\ListPaymentLinksStatus;
 
 $sdk = SDK::builder()
     ->build();
@@ -120,7 +120,7 @@ try {
     $request->after = 'error';
     $request->limit = 645894;
     $request->since = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-07-25T06:44:09.184Z');
-    $request->status = ListPaymentLinksStatusEnum::COMPLETED;
+    $request->status = ListPaymentLinksStatus::COMPLETED;
     $request->until = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2022-10-30T21:34:57.850Z');
 
     $response = $sdk->paymentLinks->list($request);
