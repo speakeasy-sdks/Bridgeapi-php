@@ -1,3 +1,4 @@
+src/SDKConfiguration.php
 src/PaymentLinks.php
 src/SDK.php
 src/SDKBuilder.php
