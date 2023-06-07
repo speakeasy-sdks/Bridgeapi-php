@@ -8,6 +8,12 @@ declare(strict_types=1);
 
 namespace Bridge\Bridgeapi;
 
+/**
+ * SDK
+ * 
+ * @package Bridge\Bridgeapi
+ * @access public
+ */
 class SDK
 {
 	public const SERVERS = [
