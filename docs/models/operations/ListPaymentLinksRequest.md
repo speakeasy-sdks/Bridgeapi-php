@@ -1,0 +1,12 @@
+# ListPaymentLinksRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `after`                                                                      | *?string*                                                                    | :heavy_minus_sign:                                                           | Cursor pointing to the start of the desired set                              |
+| `limit`                                                                      | *?int*                                                                       | :heavy_minus_sign:                                                           | Number of records to return                                                  |
+| `since`                                                                      | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                | :heavy_minus_sign:                                                           | Limit to payment links created after the specified date                      |
+| `status`                                                                     | [?ListPaymentLinksStatus](../../models/operations/ListPaymentLinksStatus.md) | :heavy_minus_sign:                                                           | Filter payment links by status                                               |
+| `until`                                                                      | [\DateTime](https://www.php.net/manual/en/class.datetime.php)                | :heavy_minus_sign:                                                           | Limit to transactions created before the specified date                      |

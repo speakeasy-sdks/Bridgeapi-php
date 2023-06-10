@@ -21,7 +21,7 @@ try {
     $request->bankId = 548814;
     $request->callbackUrl = 'provident';
     $request->clientReference = 'ABCDE_FG-HI_12345';
-    $request->country = PaymentLinkRequestCountry::DE;
+    $request->country = PaymentLinkRequestCountry::De;
     $request->expiredDate = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2021-07-24T22:00:00.000Z');
     $request->transactions = [
         new Transaction(),

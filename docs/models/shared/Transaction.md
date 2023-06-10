@@ -1,0 +1,13 @@
+# Transaction
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `amount`                                                      | *float*                                                       | :heavy_check_mark:                                            | N/A                                                           | 120.98                                                        |
+| `beneficiary`                                                 | [?Beneficiary](../../models/shared/Beneficiary.md)            | :heavy_minus_sign:                                            | N/A                                                           |                                                               |
+| `currency`                                                    | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           | EUR                                                           |
+| `endToEndId`                                                  | *?string*                                                     | :heavy_minus_sign:                                            | N/A                                                           | E2E_ID-1234                                                   |
+| `executionDate`                                               | [\DateTime](https://www.php.net/manual/en/class.datetime.php) | :heavy_minus_sign:                                            | N/A                                                           | 2021-07-24T22:00:00.000Z                                      |
+| `label`                                                       | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           | Refund 123456                                                 |

@@ -11,8 +11,8 @@ namespace Bridge\Bridgeapi\Models\Shared;
 
 enum PaymentLinkRequestCountry: string
 {
-    case FR = 'fr';
-    case ES = 'es';
-    case DE = 'de';
-    case GB = 'gb';
+    case Fr = 'fr';
+    case Es = 'es';
+    case De = 'de';
+    case Gb = 'gb';
 }

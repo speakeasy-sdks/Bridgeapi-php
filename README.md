@@ -62,7 +62,7 @@ try {
     $request->bankId = 548814;
     $request->callbackUrl = 'provident';
     $request->clientReference = 'ABCDE_FG-HI_12345';
-    $request->country = PaymentLinkRequestCountry::DE;
+    $request->country = PaymentLinkRequestCountry::De;
     $request->expiredDate = DateTime::createFromFormat('Y-m-d\TH:i:sP', '2021-07-24T22:00:00.000Z');
     $request->transactions = [
         new Transaction(),
@@ -90,12 +90,12 @@ try {
 ## Available Resources and Operations
 
 
-### [paymentLinks](docs/paymentlinks/README.md)
+### [paymentLinks](docs/sdks/paymentlinks/README.md)
 
-* [create](docs/paymentlinks/README.md#create) - Create a payment link
-* [get](docs/paymentlinks/README.md#get) - Retrieve payment link information by ID
-* [list](docs/paymentlinks/README.md#list) - Retrieve a list of payment links
-* [revoke](docs/paymentlinks/README.md#revoke) - Revoke a payment link
+* [create](docs/sdks/paymentlinks/README.md#create) - Create a payment link
+* [get](docs/sdks/paymentlinks/README.md#get) - Retrieve payment link information by ID
+* [list](docs/sdks/paymentlinks/README.md#list) - Retrieve a list of payment links
+* [revoke](docs/sdks/paymentlinks/README.md#revoke) - Revoke a payment link
 <!-- End SDK Available Operations -->
 
 ### Maturity

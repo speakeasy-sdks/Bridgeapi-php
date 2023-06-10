@@ -12,8 +12,8 @@ namespace Bridge\Bridgeapi\Models\Operations;
 /** Filter payment links by status */
 enum ListPaymentLinksStatus: string
 {
-    case VALID = 'VALID';
-    case COMPLETED = 'COMPLETED';
-    case EXPIRED = 'EXPIRED';
-    case REVOKED = 'REVOKED';
+    case Valid = 'VALID';
+    case Completed = 'COMPLETED';
+    case Expired = 'EXPIRED';
+    case Revoked = 'REVOKED';
 }
